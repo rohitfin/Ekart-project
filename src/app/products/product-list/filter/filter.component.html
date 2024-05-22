@@ -1,0 +1,22 @@
+
+<div class="d-flex gap-2">
+    <p><Strong>Filter</Strong></p>
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="filterRadio" id="all" value="all" [(ngModel)]="selectedStock" (change)="onSelectStockRadio()">
+        <label class="form-check-label" for="all">
+            All ({{all}})
+        </label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="filterRadio" id="inStock" value="true" [(ngModel)]="selectedStock" (change)="onSelectStockRadio()">
+        <label class="form-check-label" for="inStock">
+            In Stock ({{inStock}})
+        </label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="filterRadio" id="outStock" value="false" [(ngModel)]="selectedStock" (change)="onSelectStockRadio()">
+        <label class="form-check-label" for="outStock">
+            Out Stock ({{outStock}})
+        </label>
+    </div>
+</div>

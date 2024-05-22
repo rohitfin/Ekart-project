@@ -1,0 +1,7 @@
+
+<div class="col-10 col-md-5 col-sm-7 m-auto mt-3">
+    <app-search (searchTextChange)="getSearchText($event)"></app-search>
+</div>  
+<app-product-list [searchTextVal]="searchText" #productListCompoent></app-product-list>
+
+<app-product-detail *ngIf="productListCompoent.selectedProduct" [getProductListComp]="sendProductListComponent"></app-product-detail>

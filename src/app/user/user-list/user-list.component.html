@@ -1,0 +1,50 @@
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-10 justify-content-center">
+            <div class="d-flex justify-content-between mb-2">
+                <h3>User List</h3>
+                <a class="btn btn-primary" routerLink="/user">Add User</a>
+            </div>
+            <table class="table table-responsive table-bordered">
+                <thead>
+                    <tr>
+                        <th>Sr</th>
+                        <th>User</th>
+                        <th>Full Name</th>
+                        <th>Email</th>
+                        <th>Password</th>
+                        <th>Gender</th>
+                        <th>skills</th>
+                        <th>Experience</th>
+
+                        <th>Created</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of arrData; let i = index;">
+                        <td>{{i+1}}</td>
+                        <td>{{item.userName}}</td>
+                        <td>{{item.firstName + ' '+ item.lastName}}</td>
+                        <td>{{item.email}}</td>
+                        <td>{{item.password}}</td>
+                        <td>{{item.gender}}</td>
+                        <td>{{item.skills}}</td>
+                        <td>
+                            <ng-container *ngFor="let exp of item.experiences">
+                                <p>{{exp.companyName}} ({{exp.experience}}yrs)</p>
+                            </ng-container>
+                        </td>
+                        <td>{{item.createdBy}}, {{item.createdDate  }}, {{item.createdAdress}}</td>
+                        <td>
+                            <div class="d-flex gap-2">
+                                <button><i class="bi bi-pencil-square text-primary"></i></button>
+                                <button (click)="deleteUser(item.id)"><i class="bi bi-trash text-danger"></i></button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

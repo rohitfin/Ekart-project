@@ -1,0 +1,35 @@
+
+<div class="row justify-content-center mt-5">
+    <div class="col-6 col-md-6">
+        <form  class="form"  [formGroup]="myForm" (ngSubmit)="onSubmit()">
+            <div class="row">
+                <div class="col-12">
+                    <h5>Login</h5>
+                </div>
+                <div class="mb-2 col-12">
+                  <input formControlName="userName" type="text" class="form-control" placeholder="User name*" [ngClass]="{'is-invalid':  isSubmitted == true && myFormControlValidation['userName'].errors}">
+                  <span *ngIf="isSubmitted == true && myFormControlValidation['userName'].errors?.['required']" class="form-text text-danger">Please Enter User Name</span>
+                  <span *ngIf="myFormControlValidation['userName'].value && !myFormControlValidation['userName'].errors?.['isMatchUserName']" class="form-text text-danger">User name not match</span>
+                </div>
+                <div class="mb-2 col-12">
+                  <input formControlName="email" type="email" class="form-control" placeholder="Email*" [ngClass]="{'is-invalid': isSubmitted == true && myFormControlValidation['email'].errors}">
+                  <span *ngIf="isSubmitted == true && myFormControlValidation['email'].errors" class="form-text text-danger">Please Enter Email Id</span>
+                </div>
+                <div class="mb-2 col-12">
+                    <input formControlName="password" type="text" class="form-control" placeholder="Password*" [ngClass]="{'is-invalid':  isSubmitted == true && myFormControlValidation['password'].errors}">
+                    <span *ngIf="isSubmitted == true && myFormControlValidation['password'].errors?.['required']" class="form-text text-danger">Please Enter Password</span>
+                    <span *ngIf="myFormControlValidation['password'].errors?.['noSpaceAllowed']" class="form-text text-danger">Space is not allowed</span>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-12">                       
+                       <button type="submit" class="btn text-white {{isSubmiting ? 'bg-success': 'bg-primary'}}" [disabled]="isSubmiting">
+                        {{isSubmiting ? 'Submitting...' : 'Submit'}}
+                       </button>
+                    </div>
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>

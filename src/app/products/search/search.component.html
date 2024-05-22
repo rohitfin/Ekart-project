@@ -1,0 +1,5 @@
+<div class="input-group mb-3">
+  <input type="text" class="form-control" placeholder="Search" #searchInput>
+  <button class="btn btn-dark" type="submit" (click)="onClickSearch(searchInput)">Search</button> 
+</div>
+<p *ngIf="searchText != '' "><strong>Search result for:</strong> {{searchText}}</p>

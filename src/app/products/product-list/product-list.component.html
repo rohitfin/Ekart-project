@@ -1,0 +1,17 @@
+
+<div class="container mt-2">
+    <div class="row">      
+        <div class="col-12">
+            <h4>Product List</h4>
+        </div>
+        <div class="col-12">
+            <app-filter [all]="objStock.all" [inStock]="objStock.inStock" [outStock]="objStock.outStock" (selectedStockFilter)="onSelectedStock($event)"></app-filter>
+        </div>
+        <ng-container *ngFor="let prod of productList; let i = index;">
+            <!-- *ngIf="selectedStock == 'all' || prod.is_in_inventory.toString() == selectedStock" -->
+            <div class="col-md-3 mb-4" *ngIf="searchTextVal == '' || prod.name.toLowerCase().includes(searchTextVal)" (click)="selectedProduct = prod">
+                <app-product [product]="prod" ></app-product>
+            </div>
+        </ng-container>
+    </div>
+</div>

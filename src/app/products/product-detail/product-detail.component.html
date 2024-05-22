@@ -1,0 +1,19 @@
+<div class="overlay product-detail">
+    <i class="bi bi-x-circle top-right text-danger fs-4 p-0" (click)="onClickCloseProdDetail()"></i>
+    <div class="product-img position-relative">
+        <i class="bi bi-heart top-right bookmark"></i>
+        <img src="{{product.imageURL ? product.imageURL : '../../assets/images/no-image.png'}}" alt="product-img" class="img-fluid" />
+    </div>
+    <div class="d-flex gap-2 mt-2">
+        <span class="fw-400">{{product.price | currency: 'INR':true}}</span>
+        <span class="badge bg-success fw-500" *ngIf="product.discountPrice">{{ (100 - (product.discountPrice/ product.price)*100 ).toFixed(0)}}% OFF</span>
+    </div>
+    <p class="mb-1">{{product.name}}</p>
+    <p class="mb-1"> {{product.color?.length}} Color - Best seller</p>
+    <div class="d-flex gap-2">
+        <span class="badge fw-400" setBackground [bgColor]=" 'blue' " [textColor]=" 'white' ">{{product.gender}}</span>
+        <span class="badge fw-400" setBackground>{{product.category}}</span>
+        <span class="badge fw-400" setBackground>{{product.brand}}</span>
+    </div>
+    <small class="ms-1 fw-bold" [ngClass]="{'text-success' : product.is_in_inventory }">({{product.is_in_inventory == true ? 'Available in stock': 'Notify Me'}})</small>
+</div>

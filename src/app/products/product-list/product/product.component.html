@@ -1,0 +1,12 @@
+<div class="card product-card" appHighlight [appDisabledProduct]="product.is_in_inventory">
+    <div class="product-img position-relative">
+        <i class="bi bi-heart top-left bookmark"></i>
+        <span class="top-right offer bg-warning" *ngIf="product.discountPrice">{{ (100 - (product.discountPrice/ product.price)*100 ).toFixed(0)}}% OFF</span>
+        <span class="bottom-left price bg-dark text-white">{{product.price}}</span>
+        <img src="{{product.imageURL ? product.imageURL : '../../assets/images/no-image.png'}}" alt="product-img" class="img-fluid" />
+    </div>
+    <p class="mb-1">{{product.name}}</p>
+    <p class="mb-1"> {{product.color.length}} Color - Best seller</p>
+    <p>{{product.gender}} - {{product.category}} - {{product.brand}}</p>
+    <small class="ms-1 fw-bold" [ngClass]="{'text-success' : product.is_in_inventory }">({{product.is_in_inventory == true ? 'Available in stock': 'Out of stock'}})</small>
+</div>
